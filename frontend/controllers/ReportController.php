@@ -50,9 +50,8 @@ order by ov.vstdate
         }
         $dataProvider = new \yii\data\ArrayDataProvider([
             'allModels' => $rawData,
-            'pagination' => [
-                'pageSize' => 10,
-            ]]);
+            'pagination' => FALSE,
+            ]);
             
         return $this->render('report1', [
                     'dataProvider' => $dataProvider

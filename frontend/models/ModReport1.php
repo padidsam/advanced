@@ -34,10 +34,14 @@ GROUP BY pt.hn
 order by ov.vstdate
 
 ";
-        
-       $result = \yii::$app->db->createCommand($sql)->queryAll();
-       
-       return $result;
+        try {
+            $result = \yii::$app->db->createCommand($sql)->queryAll();
+        } catch (\yii\db\Exception $e) {
+            throw new \yii\web\ConflictHttpException('sql error');
+        }
+        //$result = \yii::$app->db->createCommand($sql)->queryAll();
+
+        return $result;
     }
 
 }

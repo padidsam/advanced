@@ -65,6 +65,8 @@ class SiteController extends Controller
         ];
     }
 
+    public $layout = "cosmo";
+    
     public function actionIndex()
     {
         return $this->render('index');

@@ -1,5 +1,5 @@
 <?php
-
+use yii\helpers\ArrayHelper;
 namespace frontend\controllers;
 
 class TestController extends \yii\web\Controller {
@@ -15,5 +15,17 @@ class TestController extends \yii\web\Controller {
         
         return $this->render('test1',['sum'=>$sum]);
     }
+    
+    public function actionTest2($name=null,$lname=null) {
+        
+        $info = "Your name is $name $lname";
+        
+        return $this->render('test2',['info'=>$info]);
+    }
+    
+    public function actionTest3() {
+    $sexes = ['M'=>'Male', 'F'=>'Female'];  
+    $this->render('test3', ['sexes'=>$sexes]);
+}
 
 }
